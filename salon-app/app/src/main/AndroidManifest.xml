@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    AndroidManifest.xml — The "ID card" of your Android app.
+    It tells Android:
+    1. What permissions the app needs (INTERNET for API calls)
+    2. What screens (Activities) exist
+    3. Which screen opens first (the LAUNCHER activity)
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- INTERNET permission: Required to make HTTP calls to your Spring Boot backend -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+        android:usesCleartextTraffic="true"
+        WHY: During development, your backend runs on http:// (not https://).
+        Android blocks non-HTTPS traffic by default for security.
+        This flag allows HTTP connections (ONLY for development!).
+        In production, you'd use HTTPS and remove this flag.
+    -->
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SalonApp"
+        android:usesCleartextTraffic="true">
+
+        <!-- LOGIN SCREEN — Opens first when app launches -->
+        <activity
+            android:name=".activities.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.HomeActivity" />
+        <activity android:name=".activities.ArtistListActivity" />
+        <activity android:name=".activities.SlotSelectionActivity" />
+        <activity android:name=".activities.MyAppointmentsActivity" />
+        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.AdminDashboardActivity" />
+        <activity android:name=".activities.ManageServicesActivity" />
+        <activity android:name=".activities.ManageArtistsActivity" />
+
+    </application>
+
+</manifest>

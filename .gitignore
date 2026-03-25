@@ -1,0 +1,44 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*credentials*.json
+*service-account*.json
+firebase-adminsdk*.json
+
+# Logs / pids / temp
+*.log
+*.pid
+*.tmp
+*.swp
+build_output*.txt
+salon-app/gradle_build_output.txt
+
+# Java / Maven
+target/
+out/
+*.class
+
+# Node/Frontend generic
+node_modules/
+dist/
+build/
+
+# Android / Gradle
+salon-app/.gradle/
+salon-app/**/build/
+salon-app/local.properties
+salon-app/captures/
+

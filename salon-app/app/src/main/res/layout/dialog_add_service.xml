@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dialog layout for adding a new service -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText android:id="@+id/etName"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Service Name *" android:inputType="text" />
+
+    <EditText android:id="@+id/etDescription"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Description" android:inputType="textMultiLine" />
+
+    <EditText android:id="@+id/etDuration"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Duration (minutes) *" android:inputType="number" />
+
+    <EditText android:id="@+id/etPrice"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Price *" android:inputType="numberDecimal" />
+
+    <EditText android:id="@+id/etCategory"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Category (e.g., Hair, Skin)" android:inputType="text" />
+</LinearLayout>

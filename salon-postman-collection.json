@@ -1,0 +1,394 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
+    "name": "Salon Management API",
+    "description": "Complete collection of all API endpoints for the Salon Management System.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication (Public)",
+      "item": [
+        {
+          "name": "Register Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Salon Boss\",\n  \"email\": \"admin@salon.com\",\n  \"password\": \"SecurePass123\",\n  \"phone\": \"9876543210\",\n  \"address\": \"Main Street Salon Hub\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register/admin",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register", "admin"]
+            }
+          }
+        },
+        {
+          "name": "Register Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"Password123\",\n  \"phone\": \"1234567890\",\n  \"address\": \"123 Customer Lane\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@salon.com\",\n  \"password\": \"SecurePass123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Services (Public)",
+      "item": [
+        {
+          "name": "Get All Active Services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/services",
+              "host": ["{{base_url}}"],
+              "path": ["services"]
+            }
+          }
+        },
+        {
+          "name": "Get Service By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/services/1",
+              "host": ["{{base_url}}"],
+              "path": ["services", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Services By Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/services/category/Hair",
+              "host": ["{{base_url}}"],
+              "path": ["services", "category", "Hair"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Artists & Slots (Public)",
+      "item": [
+        {
+          "name": "Get All Artists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/artists",
+              "host": ["{{base_url}}"],
+              "path": ["artists"]
+            }
+          }
+        },
+        {
+          "name": "Get Artist By ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/artists/1",
+              "host": ["{{base_url}}"],
+              "path": ["artists", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Available Slots",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/artists/1/slots?serviceId=1&date=2026-03-25",
+              "host": ["{{base_url}}"],
+              "path": ["artists", "1", "slots"],
+              "query": [
+                { "key": "serviceId", "value": "1" },
+                { "key": "date", "value": "2026-03-25" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Customer Profile (Requires Auth)",
+      "item": [
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/customer/profile",
+              "host": ["{{base_url}}"],
+              "path": ["customer", "profile"]
+            }
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"John Doe Jr\",\n  \"phone\": \"0987654321\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/customer/profile",
+              "host": ["{{base_url}}"],
+              "path": ["customer", "profile"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Appointments (Requires Auth)",
+      "item": [
+        {
+          "name": "Book Appointment",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"artistId\": 1,\n  \"serviceId\": 1,\n  \"appointmentDate\": \"2026-03-25\",\n  \"startTime\": \"10:00:00\",\n  \"paymentMethod\": \"PAY_AT_SALON\",\n  \"notes\": \"Please use organic products\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/appointments",
+              "host": ["{{base_url}}"],
+              "path": ["appointments"]
+            }
+          }
+        },
+        {
+          "name": "Get My Appointments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/appointments",
+              "host": ["{{base_url}}"],
+              "path": ["appointments"]
+            }
+          }
+        },
+        {
+          "name": "Cancel Appointment",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/appointments/1/cancel",
+              "host": ["{{base_url}}"],
+              "path": ["appointments", "1", "cancel"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Admin - Dashboard & Reports (Requires ADMIN)",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/dashboard",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "dashboard"]
+            }
+          }
+        },
+        {
+          "name": "Get All Appointments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/appointments",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "appointments"]
+            }
+          }
+        },
+        {
+          "name": "Get Revenue Report",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/reports/revenue?startDate=2026-03-01&endDate=2026-03-31",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "reports", "revenue"],
+              "query": [
+                { "key": "startDate", "value": "2026-03-01" },
+                { "key": "endDate", "value": "2026-03-31" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Admin - Services (Requires ADMIN)",
+      "item": [
+        {
+          "name": "Add Service",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Premium Haircut & Styling\",\n  \"description\": \"Full service haircut, wash, and blow dry styling.\",\n  \"durationMinutes\": 60,\n  \"price\": 120.00,\n  \"category\": \"Hair\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/services",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "services"]
+            }
+          }
+        },
+        {
+          "name": "Get All Services (Admin View)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/services",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "services"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Admin - Artists (Requires ADMIN)",
+      "item": [
+        {
+          "name": "Add Artist",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Jane Stylist\",\n  \"specialization\": \"Senior Hair Stylist\",\n  \"experienceYears\": 5,\n  \"workingHoursStart\": \"09:00:00\",\n  \"workingHoursEnd\": \"17:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/artists",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "artists"]
+            }
+          }
+        },
+        {
+          "name": "Assign Service to Artist",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/artists/1/services/1",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "artists", "1", "services", "1"]
+            }
+          }
+        },
+        {
+          "name": "Set Artist Break Time",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/artists/1/break?start=13:00:00&end=14:00:00",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "artists", "1", "break"],
+              "query": [
+                { "key": "start", "value": "13:00:00" },
+                { "key": "end", "value": "14:00:00" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

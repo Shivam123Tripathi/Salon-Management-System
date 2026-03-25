@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Slot chip background for available time slots -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="10dp" />
+    <stroke android:width="1dp" android:color="#303540" />
+    <solid android:color="#171A1F" />
+</shape>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/salon_black"/>
+    <item android:gravity="center">
+        <shape>
+            <solid android:color="@color/salon_gold"/>
+            <size android:width="120dp" android:height="120dp"/>
+            <corners android:radius="60dp"/>
+        </shape>
+    </item>
+</layer-list>

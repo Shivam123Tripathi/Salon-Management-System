@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText android:id="@+id/etName"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Full Name *" android:inputType="textPersonName" />
+
+    <EditText android:id="@+id/etSpecialization"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Specialization (e.g., Hair Stylist)" android:inputType="text" />
+
+    <EditText android:id="@+id/etExperience"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Experience (years)" android:inputType="number" />
+
+    <EditText android:id="@+id/etStartTime"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Working Hours Start (HH:mm:ss)" android:inputType="text"
+        android:text="09:00:00" />
+
+    <EditText android:id="@+id/etEndTime"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" android:hint="Working Hours End (HH:mm:ss)" android:inputType="text"
+        android:text="17:00:00" />
+</LinearLayout>
